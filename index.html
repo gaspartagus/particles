@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script src="zepto.min.js"></script>
+    <!--<script src="transit.min.js"></script>-->
+    <!--<script src="velocityz.min.js"></script>-->
+    <meta charset="utf-8">
+    <meta name="description" content="Create a system of particles with basic physics laws and see it evolve in a gas of atoms or a solar system.">
+    <title>Gravity & Particles</title>
+    
+    <style>
+      @font-face {
+        font-family: Bangers;
+        src: url('../Bangers.ttf');
+      }
+      @font-face {
+        font-family: Antykwa;
+        src: url('../AntykwaTorunska-Regular.otf');
+      }
+      @font-face {
+        font-family: Josefin;
+        src: url('JosefinSlab-Bold.ttf');
+      }
+      @font-face {
+        font-family: Ubuntu;
+        src: url('../Ubuntu-M.ttf');
+      }
+      @font-face {
+        font-family: Novel;
+        src: url('../NovelGothic_Normal.ttf');
+      }
+      
+      
+      
+      body{
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        /*background-image: url('fond.jpg');*/
+        background-size: cover;
+        background-position: center;
+        background-color: rgb(19, 19, 19);
+      }
+      .particule{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        background-size: cover;
+        background-position: center;
+        border-radius: 3000px;
+        -webkit-filter: none !important;
+        z-index: 0;
+        border: 1px solid grey;
+      }
+      
+      #tableau{
+        position: absolute;
+        margin: 1px 2px;
+        font-family: Josefin;
+        color: white;
+        font-size: 11pt;
+        z-index: 10;
+        /*text-shadow: 0px 0px 4px #000000;*/
+        
+        opacity: 0.1;
+        transition: 0.3s;
+        
+      }
+      #hidden{
+        display: block;
+        margin: 0 4px;
+      }
+      #tableau:hover{
+        opacity: 1;
+      }
+      
+      
+      #save {
+        background-color: #4A4A4A;
+        border: none;
+        width: 120px;
+      }
+      #load, #copy{
+        border: none;
+        background-color: #4A4A4A;
+      }
+      
+      #canvas{
+        position: absolute;
+        /*width: 100%;*/
+        /*height: 100%;*/
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="4000" height="4000"></canvas>
+    <p id="tableau">
+      <span id="framerate"></span><br>
+      <!--<label>Fission - Absorption :</label><br>-->
+      <!--<input id="abs_select" type="range" min="0" max="1" step="0.001" value="0.3"><br>-->
+      <input type="checkbox" id="infinite_space" class="action"> Short-sighted gravity<br>
+      <input type="checkbox" id="frottement" class="action"> Fluid friction<br>
+      <input type="checkbox" id="repulsion" class="action"> Repulsion<br>
+      <input type="checkbox" id="accretion" class="action"> Accretion<br>
+      <span id="hidden">
+        <br>
+        E : Erase it all<br>
+        R : A hundred random particles<br>
+        L : A hundred aligned particles<br>
+        M : Two hundred slightly shifted particles<br>
+        P : One random particle<br>
+        S : All stars gain a satellite<br>
+        Left click : Solar system<br>
+        Right click : Asteroid belt<br>
+        <br>
+        <input type="checkbox" id="dessin" class="action"> Trajectory path<br>
+        <input id="e_select" type="range" min="0" max="20" step="0.001" value="4"><br>
+        <input type="text" id="save" class="action" placeholder=" Code :"><button id="copy" class="action">Copy</button><button id="load" class="action">Load</button>
+      </span>
+    </p>
+    
+    <script src="motion.js"></script>
+    <script>
+      // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      // (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      // m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      // })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      // ga('create', 'UA-62184747-1', 'auto');
+      // ga('send', 'pageview');
+    
+    </script>
+  </body>
+    
+</html>
