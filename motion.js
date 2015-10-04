@@ -290,7 +290,7 @@ function satellite(x,y,wise){
       
       var m = p.m/70*rand();
       
-      var q = new Particule(x,y,v*cos(alpha),v*sin(alpha),m)
+      var q = new Particule(x,y,v*cos(alpha),v*sin(alpha),m);
       Particules.push(q);
     } else {
       
@@ -303,7 +303,7 @@ function satellite(x,y,wise){
       
       var v = sqrt(G*p.m/r);
       
-      var q = new Particule(p.x + r*cos(beta),p.y + r*sin(beta),v*cos(alpha),v*sin(alpha),m)
+      var q = new Particule(p.x + r*cos(beta),p.y + r*sin(beta),v*cos(alpha),v*sin(alpha),m);
       Particules.push(q);
       
     }
